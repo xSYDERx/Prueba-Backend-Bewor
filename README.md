@@ -50,9 +50,3 @@ Completa los siguientes ejercicios para demostrar tus habilidades:
 - Creados los tests para los casos de uso anteriores.
 - Creados los endpoints de la API para los casos de uso EnableCompany, DisableCompany, y ListCompany.
 - Creados los tests para comprobar que los endpoints de la API funcionen correctamente.
-
-- Tiempo aproximado de resolución de la prueba: 7hrs.
-
----
-
-¡Buena suerte en la prueba técnica!
