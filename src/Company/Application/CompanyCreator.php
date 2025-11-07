@@ -35,9 +35,9 @@ class CompanyCreator implements ServiceInterface
         $company = new Company(
             new CompanyId($id),
             new CompanyName($name),
-            new CompanyEmail($email),       // << moved here
-            new CompanyAddress($address),   // << moved here
-            CompanyStatus::disabled()       // << moved to last position
+            new CompanyEmail($email),       
+            new CompanyAddress($address),   
+            CompanyStatus::disabled()       
         );
 
         $this->repository->create($company);
