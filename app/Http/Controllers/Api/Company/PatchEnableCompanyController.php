@@ -2,29 +2,25 @@
 
 namespace App\Http\Controllers\Api\Company;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use OptimaCultura\Company\Application\EnableCompany;
 
 class PatchEnableCompanyController extends Controller
 {
-    private EnableCompany $service;
-
-    public function __construct(EnableCompany $service)
-    {
-        $this->service = $service;
-    }
-
-    public function __invoke(string $id)
+    /**
+     * Enable a company
+     */
+    public function __invoke(string $id, EnableCompany $service)
     {
         DB::beginTransaction();
         try {
-            $company = $this->service->handle($id);
+            $company = $service->handle($id);
             DB::commit();
             return response()->json($company->toArray(), 200);
         } catch (\Throwable $error) {
             DB::rollback();
-            return response()->json(['error' => $error->getMessage()], 500);
+            throw $error;
         }
     }
 }

@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/company', [App\Http\Controllers\Api\Company\PostCreateCompanyController::class, '__invoke']);
+Route::patch('/company/{id}/enable', [App\Http\Controllers\Api\Company\PatchEnableCompanyController::class, '__invoke']);
+Route::patch('/company/{id}/disable', [App\Http\Controllers\Api\Company\PatchDisableCompanyController::class, '__invoke']);
+Route::get('/company', [App\Http\Controllers\Api\Company\GetListCompaniesController::class, '__invoke']);

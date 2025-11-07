@@ -2,6 +2,7 @@
 
 namespace OptimaCultura\Company\Application;
 
+use OptimaCultura\Company\Domain\Company;
 use OptimaCultura\Company\Domain\CompanyRepositoryInterface;
 use OptimaCultura\Shared\Domain\Interfaces\ServiceInterface;
 
@@ -17,14 +18,10 @@ final class ListCompanies implements ServiceInterface
     /**
      * Retrieve all companies
      *
-     * @return array
+     * @return Company[]
      */
     public function handle(): array
     {
-        $companies = $this->repository->findAll();
-
-        return array_map(function($company) {
-            return $company->toArray();
-        }, $companies);
+        return $this->repository->all();
     }
 }
